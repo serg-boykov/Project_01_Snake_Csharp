@@ -10,8 +10,6 @@ namespace Project_01_Snake_Csharp.Lines
     {
         public HorisontalLine(int left, int top, int count, char symbol)
         {
-            _points = new List<Point>();
-
             for (int i = left; i < left + count; i++)
             {
                 Point point = new Point(i, top, symbol);
