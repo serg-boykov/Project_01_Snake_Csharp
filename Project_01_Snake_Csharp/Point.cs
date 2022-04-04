@@ -6,7 +6,13 @@ namespace Project_01_Snake_Csharp
     public class Point
     {
         private int _left, _top;
-        private readonly char _symbol;
+        private char _symbol;
+
+        public char Symbol
+        {
+            get { return  _symbol; }
+            set { _symbol = value; }
+        }
 
         public Point(Point snakeTail)
         {
@@ -37,10 +43,21 @@ namespace Project_01_Snake_Csharp
             }
         }
 
+        public void ClearPoint()
+        {
+            _symbol = ' ';
+            DrawPoint();
+        }
+
         public void DrawPoint()
         {
             Console.SetCursorPosition(_left, _top);
             Console.Write(_symbol);
+        }
+
+        internal bool ComparePoints(Point food)
+        {
+            return food._left == _left && food._top == _top;
         }
     }
 }

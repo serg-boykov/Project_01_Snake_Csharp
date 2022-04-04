@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Project_01_Snake_Csharp.Enums;
 using Project_01_Snake_Csharp.Factory;
 using Project_01_Snake_Csharp.Helpers;
@@ -14,9 +15,9 @@ namespace Project_01_Snake_Csharp
             LineInstaller line = new LineInstaller();
             line.DrawShape();
 
-            Point point = FoodFactory.GetRandomFood(119, 20, '+');
+            Point food = FoodFactory.GetRandomFood(119, 20, '+');
             Console.ForegroundColor = ColorHelper.GetRandomColor(new Random().Next(1, 5));
-            point.DrawPoint();
+            food.DrawPoint();
             Console.ForegroundColor = ColorHelper.ResetColor();
             //Console.ResetColor(); // как вариант
 
@@ -24,7 +25,25 @@ namespace Project_01_Snake_Csharp
             snake.CreateSnake(5, new Point(5, 5, 'Z'), DirectionEnum.Right);
             snake.DrawLine();
 
-            Console.ReadKey();
+            while (true)
+            {
+                if (snake.Eat(food))
+                {
+                    food = FoodFactory.GetRandomFood(119, 20, '+');
+                    Console.ForegroundColor = ColorHelper.GetRandomColor(new Random().Next(1, 5));
+                    food.DrawPoint();
+                    Console.ForegroundColor = ColorHelper.ResetColor();
+                }
+                
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.PressKey(key.Key);
+                }
+
+                snake.Move();
+                Thread.Sleep(100);
+            }
         }
     }
 }
