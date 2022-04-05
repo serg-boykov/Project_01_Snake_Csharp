@@ -5,6 +5,7 @@ using Project_01_Snake_Csharp.Factory;
 using Project_01_Snake_Csharp.Helpers;
 using Project_01_Snake_Csharp.Installers;
 using Project_01_Snake_Csharp.Lines;
+using Project_01_Snake_Csharp.UI;
 
 namespace Project_01_Snake_Csharp
 {
@@ -12,10 +13,14 @@ namespace Project_01_Snake_Csharp
     {
         static void Main(string[] args)
         {
-            GamePlay gamePlay = new GamePlay();
-            gamePlay.StartGame();
+            UIService uiService = new UIService();
+            uiService.GetMenu();
 
-            Console.WriteLine("Game Over...");
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+                uiService.GetCommand(key.Key);
+            }
         }
     }
 }

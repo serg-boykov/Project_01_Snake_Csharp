@@ -9,13 +9,21 @@ using Project_01_Snake_Csharp.Factory;
 using Project_01_Snake_Csharp.Helpers;
 using Project_01_Snake_Csharp.Installers;
 using Project_01_Snake_Csharp.Lines;
+using Project_01_Snake_Csharp.UserServices;
 
 namespace Project_01_Snake_Csharp
 {
     public class GamePlay
     {
-        public void StartGame()
+        private UserService _userService = new UserService();
+
+        public void StartGame(User user)
         {
+            if (user == null)
+            {
+                user = new User();
+            }
+            
             int score = 0;
 
             LineInstaller line = new LineInstaller();
@@ -60,6 +68,9 @@ namespace Project_01_Snake_Csharp
                 snake.Move();
                 Thread.Sleep(100);
             }
+
+            user.Score = score;
+            _userService.SaveScore(user);
         }
     }
 }
