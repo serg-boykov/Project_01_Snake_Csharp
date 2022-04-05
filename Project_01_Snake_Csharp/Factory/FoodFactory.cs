@@ -12,8 +12,8 @@ namespace Project_01_Snake_Csharp.Factory
 
         public static Point GetRandomFood(int spaceWidth, int spaceHeight, char symbol)
         {
-            spaceWidth = _random.Next(2, spaceWidth - 2);
-            spaceHeight = _random.Next(2, spaceHeight - 2);
+            spaceWidth = _random.Next(3, spaceWidth - 3);
+            spaceHeight = _random.Next(3, spaceHeight - 3);
 
             return new Point(spaceWidth, spaceHeight, symbol);
         }

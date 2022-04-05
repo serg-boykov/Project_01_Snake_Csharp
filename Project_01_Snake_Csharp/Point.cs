@@ -55,9 +55,9 @@ namespace Project_01_Snake_Csharp
             Console.Write(_symbol);
         }
 
-        internal bool ComparePoints(Point food)
+        internal bool ComparePoints(Point point)
         {
-            return food._left == _left && food._top == _top;
+            return point._left == _left && point._top == _top;
         }
     }
 }

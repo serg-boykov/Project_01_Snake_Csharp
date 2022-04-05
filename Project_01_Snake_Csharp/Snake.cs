@@ -13,6 +13,8 @@ namespace Project_01_Snake_Csharp
 
         public void CreateSnake(int length, Point snakeTail, DirectionEnum direction)
         {
+            _direction = direction;
+
             for (int i = 0; i < length; i++)
             {
                 Point point = new Point(snakeTail);
@@ -52,6 +54,21 @@ namespace Project_01_Snake_Csharp
             {
                 _direction = DirectionEnum.Up;
             }
+        }
+
+        public bool CollisionWithOwnTail()
+        {
+            Point head = _points.Last();
+
+            for (int i = 0; i < _points.Count - 1; i++)
+            {
+                if (head.ComparePoints(_points[i]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public bool Eat(Point food)
