@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Project_01_Snake_Csharp.UserServices;
+﻿using Project_01_Snake_Csharp.UserServices;
+using System;
 
 namespace Project_01_Snake_Csharp.UI
 {
@@ -14,8 +10,10 @@ namespace Project_01_Snake_Csharp.UI
         private UserService _userService = new UserService();
 
         private User _user = new User();
-        
 
+        /// <summary>
+        /// Calling the Main Menu of the game.
+        /// </summary>
         public void GetMenu()
         {
             Console.Clear();
@@ -45,6 +43,10 @@ namespace Project_01_Snake_Csharp.UI
             Console.WriteLine("||==================================================================||");
         }
 
+        /// <summary>
+        /// The commands of the Main Menu of the game.
+        /// </summary>
+        /// <param name="key">The pressed console key</param>
         public void GetCommand(ConsoleKey key)
         {
             switch (key)
@@ -67,6 +69,9 @@ namespace Project_01_Snake_Csharp.UI
             }
         }
 
+        /// <summary>
+        /// Run the game.
+        /// </summary>
         private void StartGame()
         {
             Console.Clear();
@@ -74,12 +79,15 @@ namespace Project_01_Snake_Csharp.UI
             Concede();
         }
 
+        /// <summary>
+        /// Create New User.
+        /// </summary>
         private void CreateUserForm()
         {
             Console.Clear();
             Console.WriteLine("Create User Form\n");
-            
-            Label:
+
+        Label:
             Console.Write("Enter youe name, please: ");
             string userName = Console.ReadLine();
 
@@ -97,6 +105,9 @@ namespace Project_01_Snake_Csharp.UI
             Console.WriteLine("Press BackSpace to Back");
         }
 
+        /// <summary>
+        /// Print the results of the game.
+        /// </summary>
         private void ScoreBoard()
         {
             Console.Clear();
@@ -112,6 +123,9 @@ namespace Project_01_Snake_Csharp.UI
             Console.WriteLine("\nPress BackSpace to Back");
         }
 
+        /// <summary>
+        /// Game Over.
+        /// </summary>
         private void Concede()
         {
             Console.Clear();

@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Project_01_Snake_Csharp.Lines;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Project_01_Snake_Csharp.Lines;
 
 namespace Project_01_Snake_Csharp.Installers
 {
@@ -11,6 +7,9 @@ namespace Project_01_Snake_Csharp.Installers
     {
         private List<Shape> _shapes;
 
+        /// <summary>
+        /// Initialization of the game area using horizontal and vertical lines.
+        /// </summary>
         public LineInstaller()
         {
             _shapes = new List<Shape>();
@@ -21,9 +20,12 @@ namespace Project_01_Snake_Csharp.Installers
             VerticalLine lfVLine = new VerticalLine(0, 1, 19, '|');
             VerticalLine rtVLine = new VerticalLine(119, 1, 19, '|');
 
-            _shapes.AddRange(new List<Shape>() {upHLine, dnHLine, lfVLine, rtVLine});
+            _shapes.AddRange(new List<Shape>() { upHLine, dnHLine, lfVLine, rtVLine });
         }
 
+        /// <summary>
+        /// Drawing the game area on the screen.
+        /// </summary>
         public void DrawShape()
         {
             foreach (var shape in _shapes)
@@ -32,6 +34,11 @@ namespace Project_01_Snake_Csharp.Installers
             }
         }
 
+        /// <summary>
+        /// The fact of intersection of Shape objects.
+        /// </summary>
+        /// <param name="shape">The Shape object.</param>
+        /// <returns>The fact of intersection</returns>
         public bool Collision(Shape shape)
         {
             foreach (var item in _shapes)

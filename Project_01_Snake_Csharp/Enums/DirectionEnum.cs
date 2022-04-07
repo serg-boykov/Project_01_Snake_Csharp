@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project_01_Snake_Csharp.Enums
+﻿namespace Project_01_Snake_Csharp.Enums
 {
+    /// <summary>
+    /// Enumeration the direction of the snake movement.
+    /// </summary>
     public enum DirectionEnum
     {
         Right,

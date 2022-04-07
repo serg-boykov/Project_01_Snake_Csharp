@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Project_01_Snake_Csharp.Enums;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Project_01_Snake_Csharp.Enums;
 
 namespace Project_01_Snake_Csharp
 {
+    /// <summary>
+    /// Snake derived class.
+    /// </summary>
     public class Snake : Shape
     {
+        // The direction of the snake movement.
         private DirectionEnum _direction;
 
+        /// <summary>
+        /// Creating the snake.
+        /// </summary>
+        /// <param name="length">The snake length.</param>
+        /// <param name="snakeTail">The snake tail point.</param>
+        /// <param name="direction">The direction of the snake movement.</param>
         public void CreateSnake(int length, Point snakeTail, DirectionEnum direction)
         {
             _direction = direction;
@@ -23,6 +30,9 @@ namespace Project_01_Snake_Csharp
             }
         }
 
+        /// <summary>
+        /// The snake movement.
+        /// </summary>
         public void Move()
         {
             Point tail = _points.First();
@@ -36,6 +46,10 @@ namespace Project_01_Snake_Csharp
             head.DrawPoint();
         }
 
+        /// <summary>
+        /// Seting direction of movement by pressing the key.
+        /// </summary>
+        /// <param name="key">The pressed arrow key.</param>
         public void PressKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
@@ -56,6 +70,10 @@ namespace Project_01_Snake_Csharp
             }
         }
 
+        /// <summary>
+        /// The fact of intersection of the head and tail of the snake.
+        /// </summary>
+        /// <returns>The fact of intersection</returns>
         public bool CollisionWithOwnTail()
         {
             Point head = _points.Last();
@@ -71,6 +89,11 @@ namespace Project_01_Snake_Csharp
             return false;
         }
 
+        /// <summary>
+        /// The fact of intersection of the head of snake and food.
+        /// </summary>
+        /// <param name="food">The food of snake.</param>
+        /// <returns>The fact of intersection.</returns>
         public bool Eat(Point food)
         {
             Point head = new Point(_points.Last());

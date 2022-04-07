@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Project_01_Snake_Csharp.UserServices
 {
     public static class UserInitializer
     {
+        /// <summary>
+        /// Initialization of the user's list.
+        /// </summary>
+        /// <returns>The user's list</returns>
         public static List<User> GetSampleUserData()
         {
             List<User> users = new List<User>();
