@@ -95,9 +95,9 @@ namespace Project_01_Snake_Csharp.UI
             {
                 _user = _userService.CreateUser(userName);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(ex.Message);
                 goto Label;
             }
 

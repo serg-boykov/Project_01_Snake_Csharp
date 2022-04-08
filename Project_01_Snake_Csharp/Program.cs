@@ -19,14 +19,14 @@ namespace Project_01_Snake_Csharp
         static void Main(string[] args)
         {
             // Calling the Main Menu of the game.
-            UIService uiService = new UIService();
+            var uiService = new UIService();
             uiService.GetMenu();
 
             while (true)
             {
                 // Tracking keystrokes to call the commands
                 // of the Main Menu of the game.
-                ConsoleKeyInfo key = Console.ReadKey();
+                var key = Console.ReadKey();
                 uiService.GetCommand(key.Key);
             }
         }

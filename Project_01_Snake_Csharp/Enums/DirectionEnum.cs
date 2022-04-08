@@ -3,11 +3,14 @@
     /// <summary>
     /// Enumeration the direction of the snake movement.
     /// </summary>
-    public enum DirectionEnum
+    public enum DirectionType
     {
         Right,
+
         Left,
+
         Up,
+
         Down
     }
 }

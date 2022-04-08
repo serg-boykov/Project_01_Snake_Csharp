@@ -28,15 +28,20 @@ namespace Project_01_Snake_Csharp
             LineInstaller line = new LineInstaller();
             line.DrawShape();
 
-            // Create the snake's food.
-            Point food = FoodFactory.GetRandomFood(119, 20, '+');
-            Console.ForegroundColor = ColorHelper.GetRandomColor(new Random().Next(1, 5));
+            // Create the snake food.
+            int spaceWidth = 119, spaceHeight = 20;
+            char symbolFood = '+';
+            Point food = FoodFactory.GetRandomFood(spaceWidth, spaceHeight, symbolFood);
+            int minValue = 1, maxValue = 5;
+            Console.ForegroundColor = ColorHelper.GetRandomColor(new Random().Next(minValue, maxValue));
             food.DrawPoint();
             Console.ForegroundColor = ColorHelper.ResetColor(); //or as: Console.ResetColor();
 
             // Create the snake.
             Snake snake = new Snake();
-            snake.CreateSnake(5, new Point(5, 5, 'Z'), DirectionEnum.Right);
+            int length = 5, left = 5, top = 5;
+            char symbolSnake = 'Z';
+            snake.CreateSnake(length, new Point(left, top, symbolSnake), DirectionType.Right);
             snake.DrawLine();
 
             // Initialization of the game's score.
@@ -45,7 +50,8 @@ namespace Project_01_Snake_Csharp
             while (true)
             {
                 // If the collision occurs then exit the game.
-                if (line.Collision(snake) || snake.CollisionWithOwnTail())
+                var isCollision = line.Collision(snake) || snake.CollisionWithOwnTail();
+                if (isCollision)
                 {
                     break;
                 }

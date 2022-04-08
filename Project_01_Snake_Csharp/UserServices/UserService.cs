@@ -51,9 +51,9 @@ namespace Project_01_Snake_Csharp.UserServices
                     throw new ArgumentException("The User exists");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                throw ex;
             }
 
             user.Name = name;

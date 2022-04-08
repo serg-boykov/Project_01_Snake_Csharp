@@ -10,7 +10,7 @@ namespace Project_01_Snake_Csharp
     public class Snake : Shape
     {
         // The direction of the snake movement.
-        private DirectionEnum _direction;
+        private DirectionType _direction;
 
         /// <summary>
         /// Creating the snake.
@@ -18,7 +18,7 @@ namespace Project_01_Snake_Csharp
         /// <param name="length">The snake length.</param>
         /// <param name="snakeTail">The snake tail point.</param>
         /// <param name="direction">The direction of the snake movement.</param>
-        public void CreateSnake(int length, Point snakeTail, DirectionEnum direction)
+        public void CreateSnake(int length, Point snakeTail, DirectionType direction)
         {
             _direction = direction;
 
@@ -54,19 +54,19 @@ namespace Project_01_Snake_Csharp
         {
             if (key == ConsoleKey.LeftArrow)
             {
-                _direction = DirectionEnum.Left;
+                _direction = DirectionType.Left;
             }
             else if (key == ConsoleKey.RightArrow)
             {
-                _direction = DirectionEnum.Right;
+                _direction = DirectionType.Right;
             }
             else if (key == ConsoleKey.DownArrow)
             {
-                _direction = DirectionEnum.Down;
+                _direction = DirectionType.Down;
             }
             else if (key == ConsoleKey.UpArrow)
             {
-                _direction = DirectionEnum.Up;
+                _direction = DirectionType.Up;
             }
         }
 
